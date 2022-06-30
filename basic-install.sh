@@ -14,4 +14,5 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 apt-cache policy docker-ce
 sudo apt update
 sudo apt install -y docker-ce
+sudo usermod -aG docker $USER
 echo "DONE!!!"
