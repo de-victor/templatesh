@@ -24,7 +24,7 @@ echo "\n\n\n\n"
 
 #JAVA8
 echo "installing openJDK8"
-sudo apt install -y openjdk-11-jdk
+sudo apt install -y openjdk-8-jdk
 echo "\n\n\n\n"
 
 echo "installing maven"
