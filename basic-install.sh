@@ -3,6 +3,7 @@ echo "Script to install traning dependency for Ubuntu 20.04"
 echo "In 5 seconds it will begin the installation of the follow programs"
 echo "docker"
 echo "openJDK 8"
+echo "maven"
 echo "hit ctrl+c to abort this operation"
 echo "..."
 echo -e "\n"
@@ -22,8 +23,12 @@ sudo usermod -aG docker $USER
 echo "\n\n\n\n"
 
 #JAVA8
-echo "instaling openJDK8"
+echo "installing openJDK8"
 sudo apt install -y openjdk-8-jdk
+echo "\n\n\n\n"
+
+echo "installing maven"
+sudo apt install -y maven
 echo "\n\n\n\n"
 
 echo "DONE!!!"
