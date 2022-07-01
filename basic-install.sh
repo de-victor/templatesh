@@ -4,7 +4,7 @@ programs=("docker-ce" "openjdk-8-jdk" "maven")
 
 init()
 
-initialMsg(){
+initialMsg () {
   x=0
   echo "Script to install traning dependency for Ubuntu 20.04"
   echo "In 5 seconds it will begin the installation of the follow programs"
@@ -19,7 +19,7 @@ initialMsg(){
   sleep 5
 }
 
-setup(){
+setup () {
   echo "setup"
   sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -28,7 +28,7 @@ setup(){
   sudo apt update
 }
 
-install(){
+install () {
   x=0
   echo "start installation"
   while [$x != ${#programs[@]}]
@@ -39,20 +39,20 @@ install(){
   done
 }
 
-posInstallation(){
+posInstallation () {
 echo "pos installation"
 echo "seting docker in user group"
 sudo usermod -aG docker $USER
 echo "\n\n\n\n"
 }
 
-end(){
+end () {
   echo "DONE!!!"
   echo "for runing docker without sudo please exit and open the terminal again"
   echo "Thank you!"
 }
 
-init(){
+init () {
   initialMsg()
   setup()
   install()
