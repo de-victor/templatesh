@@ -2,7 +2,6 @@
 
 programs=("docker-ce" "docker-compose" "openjdk-8-jdk" "maven")
 
-
 echo "Script to install traning dependency for Ubuntu 20.04"
 echo "In 5 seconds it will begin the installation of the follow programs"
 for i in ${programs[@]}
@@ -31,12 +30,14 @@ done
 echo "pos installation"
 echo "setting docker in user group"
 sudo usermod -aG docker $USER
+
 echo "droping iptables configuration"
 sudo iptables -P INPUT ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 sudo iptables -P FORWARD ACCEPT
 sudo iptables -F
 sudo iptables --flush
+
 echo "DONE!!!"
 echo "for runing docker without sudo please exit and open the terminal again"
 echo "Thank you!"
