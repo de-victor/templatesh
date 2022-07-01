@@ -5,7 +5,7 @@ programs=("docker-ce" "openjdk-8-jdk" "maven")
 
 echo "Script to install traning dependency for Ubuntu 20.04"
 echo "In 5 seconds it will begin the installation of the follow programs"
-for i in ${#programs[@]}
+for i in ${programs[@]}
 do
   echo $i
 done
@@ -23,9 +23,9 @@ sudo apt update
 
 
 echo "start installation"
-for i in ${#programs[@]}
+for i in ${programs[@]}
 do
-  echo "installing "$i" now"
+  echo "installing $i now"
   sudo apt install -y $i
 done
 
