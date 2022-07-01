@@ -1,14 +1,13 @@
 #!/bin/bash
 
 programs=("docker-ce" "openjdk-8-jdk" "maven")
-x=0
+
 
 echo "Script to install traning dependency for Ubuntu 20.04"
 echo "In 5 seconds it will begin the installation of the follow programs"
-while [$x != ${#programs[@]}]
+for i in ${#programs[@]}
 do
-  echo "${programs[$x]}"
-  let "x = x +1"
+  echo $i
 done
 echo "hit ctrl+c to abort this operation"
 echo "..."
@@ -22,13 +21,12 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 apt-cache policy docker-ce
 sudo apt update
 
-x=0
+
 echo "start installation"
-while [$x != ${#programs[@]}]
+for i in ${#programs[@]}
 do
-  echo "installing "${programs[$x]}" now"
-  sudo apt install -y "${programs[$x]}"
-  let "x = x +1"
+  echo "installing "$i" now"
+  sudo apt install -y $i
 done
 
 echo "pos installation"
