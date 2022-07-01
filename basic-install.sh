@@ -1,6 +1,6 @@
 #!/bin/bash
 
-programs=("docker-ce" "openjdk-8-jdk" "maven")
+programs=("docker-ce" "docker-compose" "openjdk-8-jdk" "maven")
 
 
 echo "Script to install traning dependency for Ubuntu 20.04"
@@ -21,18 +21,19 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 apt-cache policy docker-ce
 sudo apt update
 
-
 echo "start installation"
 for i in ${programs[@]}
 do
+  echo "\n"
   echo "installing $i now"
   sudo apt install -y $i
+  echo "\n"
 done
 
 echo "pos installation"
 echo "seting docker in user group"
 sudo usermod -aG docker $USER
-echo "\n\n\n\n"
+echo "\n"
 
 echo "DONE!!!"
 echo "for runing docker without sudo please exit and open the terminal again"
