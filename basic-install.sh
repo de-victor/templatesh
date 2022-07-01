@@ -24,16 +24,13 @@ sudo apt update
 echo "start installation"
 for i in ${programs[@]}
 do
-  echo "\n"
   echo "installing $i now"
   sudo apt install -y $i
-  echo "\n"
 done
 
 echo "pos installation"
-echo "seting docker in user group"
+echo "setting docker in user group"
 sudo usermod -aG docker $USER
-echo "\n"
 
 echo "DONE!!!"
 echo "for runing docker without sudo please exit and open the terminal again"
