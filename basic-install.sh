@@ -1,6 +1,6 @@
 #!/bin/bash
 
-programs=("docker-ce" "docker-compose" "openjdk-8-jdk" "maven" "nodejs" "nvm")
+programs=("docker-ce" "docker-compose" "openjdk-8-jdk" "maven" "nodejs" "npm")
 
 echo "Script to install traning dependency for Ubuntu 20.04"
 echo "In 5 seconds it will begin the installation of the follow programs"
