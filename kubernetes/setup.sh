@@ -23,7 +23,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plu
 
 echo "setting docker in user group"
 sudo usermod -aG docker $USER
-newgrp docker
+
 
 echo "cri-dockerd install"
 sudo snap install --classic --channel=1.18/stable go
@@ -45,4 +45,4 @@ sudo apt-mark hold kubelet kubeadm kubectl
 echo "fixing bug from cri-dockerd"
 sudo rm /etc/containerd/config.toml
 sudo systemctl restart containerd
-
+newgrp docker
