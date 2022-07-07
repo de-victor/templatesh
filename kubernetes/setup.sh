@@ -24,6 +24,14 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plu
 echo "setting docker in user group"
 sudo usermod -aG docker $USER
 
+echo "cri-dockerd install"
+sudo snap install --classic --channel=1.18/stable go
+git clone https://github.com/Mirantis/cri-dockerd.git
+cd cri-dockerd
+mkdir bin
+VERSION=$((git describe --abbrev=0 --tags | sed -e 's/v//') || echo $(cat VERSION)-$(git log -1 --pretty='%h')) PRERELEASE=$(grep -q dev <<< "${VERSION}" && echo "pre" || echo "") REVISION=$(git log -1 --pretty='%h')
+go get && go build -ldflags="-X github.com/Mirantis/cri-dockerd/version.Version='$VERSION}' -X github.com/Mirantis/cri-dockerd/version.PreRelease='$PRERELEASE' -X github.com/Mirantis/cri-dockerd/version.BuildTime='$BUILD_DATE' -X github.com/Mirantis/cri-dockerd/version.GitCommit='$REVISION'" -o cri-dockerd
+
 echo "kubernetes installation"
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
