@@ -3,7 +3,7 @@
 endPoint=$1
 file=kubeadm-config.yaml
 
-if [ -z $ips ] ; then
+if [ -z $endPoint ] ; then
   echo "Inform endPoint"
   echo "ex: .\start.sh xx.xx.xx.xx"
 else
