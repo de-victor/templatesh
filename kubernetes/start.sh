@@ -8,7 +8,7 @@ if [ -z $endPoint ] ; then
   echo "ex: .\start.sh xx.xx.xx.xx"
 else
   #modify config yaml
-  sed -i 's/controlPlaneEndpoint:.*/controlPlaneEndpoint:'$endPoint'/' $file
+  #sed -i 's/controlPlaneEndpoint:.*/controlPlaneEndpoint:'$endPoint'/' $file
 
   #start kubernet control panel
   sudo kubeadm init --config kubeadm-config.yaml
