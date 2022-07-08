@@ -7,6 +7,7 @@ if [ -z $ips ] || [ -z $endPoint ] ; then
 else
   CERTKEY=$(kubeadm certs certificate-key)
   echo $CERTKEY &> certkey.key
+  echo $CERTKEY
   echo "trying to setting up kubernet cluster with apiserver="$ips" and endpoint="$endPoint
   sudo kubeadm init --config kubeadm-config.yaml
   #sudo kubeadm init --apiserver-cert-extra-sans=$ips --pod-network-cidr=10.32.0.0/12 --control-plane-endpoint=$endPoint --upload-certs --certificate-key=$CERTKEY
