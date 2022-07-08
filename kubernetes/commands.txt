@@ -1,0 +1,5 @@
+#token list
+sudo kubeadm token list
+
+#tokens expire in 24h to generate new token and join command
+sudo kubeadm token create
