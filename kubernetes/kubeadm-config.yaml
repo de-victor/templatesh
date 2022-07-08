@@ -1,7 +1,17 @@
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+apiServerCertSANs:
+- publicIp
+- otherIps
+- otherIps
+---
 kind: ClusterConfiguration
 apiVersion: kubeadm.k8s.io/v1beta3
 kubernetesVersion: v1.24.2
 clusterName: "training-cluster"
+controlPlaneEndpoint: "publicIp"
+networking:
+  podSubnet: "10.32.0.0/12"
 ---
 kind: KubeletConfiguration
 apiVersion: kubelet.config.k8s.io/v1beta1
