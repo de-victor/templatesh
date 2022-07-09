@@ -11,7 +11,7 @@ else
   sed -i 's/controlPlaneEndpoint:.*/controlPlaneEndpoint: '$endPoint'/' $file
 
   #start kubernet control panel
-  sudo kubeadm init --config kubeadm-config.yaml
+  sudo kubeadm init --config kubeadm-config.yaml --upload-certs
 
   #after kubernetes init
   mkdir -p $HOME/.kube
