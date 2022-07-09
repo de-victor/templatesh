@@ -6,13 +6,11 @@ echo -e "\n"
 sleep 5
 
 echo "droping iptables configuration!"
-sudo iptables-save > ~/iptables-rules
-grep -v "DROP" iptables-rules > tmpfile && mv tmpfile iptables-rules-mod
-grep -v "REJECT" iptables-rules-mod > tmpfile && mv tmpfile iptables-rules-mod
-sudo iptables-restore < ~/iptables-rules-mod
-sudo iptables -L
-sudo netfilter-persistent save
-sudo systemctl restart iptables
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -F
+sudo iptables --flush
 
 echo "docker instalation"
 sudo apt-get update
