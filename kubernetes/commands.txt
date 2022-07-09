@@ -1,5 +1,11 @@
 #token list
 sudo kubeadm token list
 
-#tokens expire in 24h to generate new token and join command
-sudo kubeadm token create
+#generate new certkey
+kubeadm certs certificate-key
+
+#new token with join command
+sudo kubeadm token create --print-join-command
+
+#generate new token with exist certificate plus print join command for new control panel
+kubeadm token create --certificate-key b1ceedd93b06aabd077848387de542c7321333d4f8e4fe13bf2f2f526901348d --print-join-command
