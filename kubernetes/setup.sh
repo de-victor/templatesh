@@ -6,11 +6,13 @@ echo -e "\n"
 sleep 5
 
 echo "droping iptables configuration!"
-sudo iptables -P INPUT ACCEPT
-sudo iptables -P OUTPUT ACCEPT
-sudo iptables -P FORWARD ACCEPT
-sudo iptables -F
-sudo iptables --flush
+sudo iptables-save > ~/iptables-rules
+grep -v "DROP" iptables-rules > tmpfile && mv tmpfile iptables-rules-mod
+grep -v "REJECT" iptables-rules-mod > tmpfile && mv tmpfile iptables-rules-mod
+sudo iptables-restore < ~/iptables-rules-mod
+sudo iptables -L
+sudo netfilter-persistent save
+sudo systemctl restart iptables
 
 echo "docker instalation"
 sudo apt-get update
@@ -23,7 +25,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plu
 
 echo "setting docker in user group"
 sudo usermod -aG docker $USER
-
 
 echo "cri-dockerd install"
 sudo snap install --classic --channel=1.18/stable go
