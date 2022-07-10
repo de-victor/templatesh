@@ -1,0 +1,2 @@
+#kubernetes ports
+https://docs.oracle.com/en/operating-systems/olcne/1.1/start/ports.html
