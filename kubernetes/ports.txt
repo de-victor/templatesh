@@ -1,0 +1,5 @@
+Ports that are needed to be open for kubernetes comunication with cp and nodes
+6443,2379-2380,6443,8090-8091,10250-10252,10255
+
+UDP
+8472
